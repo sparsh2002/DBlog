@@ -10,8 +10,9 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('articles/' , include('articles.urls')),
+    path('accounts/' , include('accounts.urls')),
     path('about/', views.about ),
     path('', views.homepage ),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL ,document_root=settings.MEDIA_ROOT )
 
 # urlpatterns += staticfiles_urlpatterns()
