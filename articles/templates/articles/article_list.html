@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Article List</title>
+    <link rel="stylesheet" type="text/css" href="{%static 'styles.css' %}" >
 </head>
 <body>
     <h1>
         Article List
     </h1>
     <p>This is articles List</p>
+    
+    <!-- <img src="{% static 'ss.png' %}" alt="ss"> -->
+    <div class="articles">
+        {% for article in articles %}
+            <div class="article">
+                <h2><a href="#" >{{article.title}}</a></h2>
+                <p>{{article.snippet}}</p>
+                <p class="bold">{{article.date}}</p>
+            </div>
+        {%endfor %}
+    </div>
 </body>
 </html>
