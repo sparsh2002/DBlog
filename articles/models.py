@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.models import User
 # run these commands as you update this file
 # python manage.py makemigrations
 # python manage.py migrate
@@ -10,9 +10,9 @@ class Article(models.Model):
     slug = models.SlugField()
     body = models.TextField()
     date = models.DateTimeField(auto_now_add=True)
-
     thumb = models.ImageField(default='default.png' , blank=True)
-    # add in author late
+    author = models.ForeignKey(User , default=None , on_delete=models.CASCADE)
+
 
     def __str__(self):
         return self.title
